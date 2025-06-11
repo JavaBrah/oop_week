@@ -86,17 +86,25 @@ class CarManager():
     1. Look at total cars
     2. Look at cars by Manager
     3. Add Car by Manager
+    4. Add Manager
     """)
-        user_choice = int(input("Select one of the options"))
+        user_choice = int(input("Select one of the options "))
         match user_choice:
             case 1:
                 CarManager.view_total_cars()
                 CarManager.present_menu()
             case 2:
                 CarManager.view_managers()
-                i = int(input("Select Manager by number"))
+                i = int(input("Select Manager by number: "))
                 CarManager.list_of_managers[i].view_managers_cars()
                 CarManager.present_menu()
+            case 3:
+                prebuilt_car_info = ['Ford', '150', '2000', 234098, "None"]
+                CarManager.list_of_managers[0].add_to_managers_cars(
+                    **prebuilt_car_info)
+            case 4:
+                name = input("Enter the name of the new manager")
+                CarManager.add_manager(name)    
             case _:
                 print("Later")
 
@@ -107,10 +115,12 @@ CarManager.add_manager("keg")
 CarManager.add_manager("k")
  
 CarManager.list_of_managers[0].add_to_managers_cars(
-    CarManager.list_of_managers[0].car_info("a", "d", "d", "d", 'd'))
+    CarManager.list_of_managers[0].car_info("Toyota", "Tundra", "2018",
+                                            "100902", 'None'))
 
 CarManager.list_of_managers[1].add_to_managers_cars(
-    CarManager.list_of_managers[1].car_info("123", "132", "123", "132", '132'))
+    CarManager.list_of_managers[1].car_info(
+        "Honda", "Civic", "2008", "132033", 'Rebuilt Transmission'))
 
 CarManager.list_of_managers[1].view_managers_cars()
 
