@@ -1,22 +1,22 @@
 from random import randint
 
 class User():
-    list_of_ids = []
+    list_of_users = []
 
     @classmethod
-    def append_list_of_ids(cls, new_id):
-        cls.list_of_ids.append(new_id)
+    def append_list_of_users(cls, new_user):
+        cls.list_of_users.append(new_user)
 
     def __init__(self, name, email, password, id):
         self.name = name
         self.email = email
         self.password = password
         self.id = id
-        self.list_of_ids(self.id)
+        self.append_list_of_users(self)
     
     @property
     def name(self):
-        return self.name
+        return self._name
     
     @name.setter
     def name(self, new_name):
@@ -42,7 +42,7 @@ class User():
     
     @password.setter
     def password(self, new_password):
-        if 5 < len(new_password) < 20 and len(new_password).isalnum():
+        if 5 < len(new_password) < 20 and new_password.isalnum():
             self._password = new_password
         else:
             raise ValueError("Password length (5-20) and only alnum")
@@ -53,11 +53,11 @@ class User():
     
     @id.setter
     def id(self, new_id):
-        if new_id.isalnum() and new_id not in User.list_of_ids:
+        if new_id.isalnum():
             self._id = new_id
         else:
             raise ValueError("ID is not in proper format")
 
     def make_post(self, post):
-        print(f"{self.name} made a post: {post}")
+        return (f"{self.name} made a post: {post}")
 

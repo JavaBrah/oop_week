@@ -12,17 +12,18 @@ class FreeUser(User):
     
     @post_counter.setter
     def post_counter(self, new_counter):
-        if new_counter == 0:
+        if new_counter <= 2:
             self._post_counter = new_counter
         else:
             raise ValueError("Double check self.post_counter")
 
     def add_to_post_counter(self):
-        self.post_counter += 1
+        self._post_counter += 1
 
     def make_post(self, post):
         if self.post_counter < 2:
+            self.add_to_post_counter()
             return super().make_post(post)
         else:
-            print("You have reach your post limit")
-            return None
+            return "You have reach your post limit"
+            
