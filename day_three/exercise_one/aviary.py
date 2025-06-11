@@ -1,7 +1,7 @@
 from animal_dir.bird import Bird
 
 class Aviary():
-    def __init__(self, birds):
+    def __init__(self, birds= Bird.list_of_birds):
         self.birds = birds
 
     @property
