@@ -51,5 +51,24 @@ bb = BoggleBoard()
 
 print(bb.shake())
 
+def check_for_word(word, board):
+    row_length = len(board)
+    column_length = len(board[0])
+    directions = [(0,1), (1,1), (-1,1), (1,0), (-1,0), (-1,-1), (1,-1), (0,-1)]
+
+    def check_if_index_within_2d_list(row_index, column_index):
+        return 0 <= row_index < row_length and 0 <= column_index < column_length 
+
+    count = 0
+    if word[count] in board:
+        idx1, idx2 = board.index(word[count])
+        count += 1
+        for d in directions:
+            if board[(idx1 + d[0]), (idx2 + d[1])] == word[count]:
+                idx1, idx2 = board[d[0], d[1]]
+                count += 1
+                if count + 1 == len(word):
+                    return True
+    return False
 
 
