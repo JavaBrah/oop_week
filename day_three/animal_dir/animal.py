@@ -13,6 +13,8 @@ class Animal():
     def name(self, new_name):
         if new_name:
             self._name = new_name
+        else:
+            raise ValueError("Name was not added")
     
     @property
     def species(self):
@@ -22,3 +24,5 @@ class Animal():
     def species(self, new_species):
         if new_species:
             self._species = new_species
+        else:
+            raise ValueError("Species not added")

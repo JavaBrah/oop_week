@@ -1,4 +1,4 @@
-from animal import Animal
+from .animal import Animal
 
 class Bird(Animal):
     def __init__(self, name, species, wingspan):
@@ -13,3 +13,5 @@ class Bird(Animal):
     def wingspan(self, new_wingspan):
         if new_wingspan:
             self._wingspan = new_wingspan
+        else:
+            raise ValueError("Wingspan not added")

@@ -1,4 +1,4 @@
-from mammal import Mammal
+from .mammal import Mammal
 
 class Primate(Mammal):
     def __init__(self, name, species):
