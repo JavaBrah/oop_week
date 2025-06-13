@@ -68,7 +68,7 @@ class Expenses():
             raise ValueError("Input numbers: Savings")
         
     def add_expense(expense, amount, filename="expenses"):
-        
+        pass
 
 
     def update_expense(self, expense_name, new_amount = None, filename="expenses.csv"):

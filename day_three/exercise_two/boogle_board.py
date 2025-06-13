@@ -38,8 +38,7 @@ class BoggleBoard():
                 string += 'Qu'
             else:
                 string += char
-
-
+                
             if x % 4 == 0:
                 board_list.append(string)
                 string = ""
